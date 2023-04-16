@@ -37,8 +37,6 @@ class checker:
                     }
                     try:
                         response = requests.post('https://gamertag.xboxlive.com/gamertags/reserve', headers=headers, json=json_data)
-                        print(response.text)
-                        print(response.json())
                         if response.json()['classicGamertag'] == user:
                             print(f"{user} Available")
                         elif response.json()['classicGamertag'] != user:
