@@ -5,6 +5,7 @@ class checker:
         self.checked = []
 
     def checkers(self):
+        print("Discord Server: https://discord.gg/tmV3XpxkFJ")
         while True:
             self.username = open('usernames.txt').read().splitlines()
             for user in self.username:
@@ -51,3 +52,4 @@ class checker:
                 time.sleep(10)
                 exit()
 checker().checkers()
+
