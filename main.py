@@ -5,7 +5,7 @@ class checker:
         self.checked = []
 
     def checkers(self):
-        print("Discord Server: https://discord.gg/tmV3XpxkFJ")
+        os.system("open https://discord.gg/tmV3XpxkFJ")
         while True:
             os.system(f'title ^ Available: {self.Available}')
             self.username = open('usernames.txt').read().splitlines()
