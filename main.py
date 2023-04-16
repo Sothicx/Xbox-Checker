@@ -1,13 +1,13 @@
-import requests, time, os
+import requests, time, os, webbrowser
 class checker:
     def __init__(self):
         self.available = 0
         self.checked = []
 
     def checkers(self):
-        os.system("open https://discord.gg/tmV3XpxkFJ")
+        webbrowser.open('https://discord.gg/tmV3XpxkFJ')
         while True:
-            os.system(f'title ^ Available: {self.Available}')
+            os.system(f'title ^ Available: {self.available}')
             self.username = open('usernames.txt').read().splitlines()
             for user in self.username:
                 if user not in self.checked:
