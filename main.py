@@ -1,4 +1,4 @@
-import requests, time
+import requests, time, os
 class checker:
     def __init__(self):
         self.available = 0
@@ -7,6 +7,7 @@ class checker:
     def checkers(self):
         print("Discord Server: https://discord.gg/tmV3XpxkFJ")
         while True:
+            os.system(f'title ^ Available: {self.Available}')
             self.username = open('usernames.txt').read().splitlines()
             for user in self.username:
                 if user not in self.checked:
@@ -39,6 +40,7 @@ class checker:
                         response = requests.post('https://gamertag.xboxlive.com/gamertags/reserve', headers=headers, json=json_data)
                         if response.json()['classicGamertag'] == user:
                             print(f"{user} Available")
+                            self.available += 1
                         elif response.json()['classicGamertag'] != user:
                             print(f"{user} Invalid")
                         else:
