@@ -1,4 +1,5 @@
 import requests, time, os, webbrowser
+from colorama import Fore,Style
 class checker:
     def __init__(self):
         self.available = 0
@@ -39,14 +40,14 @@ class checker:
                     try:
                         response = requests.post('https://gamertag.xboxlive.com/gamertags/reserve', headers=headers, json=json_data)
                         if response.json()['classicGamertag'] == user:
-                            print(f"{user} Available")
+                            print(f"{Fore.GREEN}[#] {user} Available")
                             self.available += 1
                         elif response.json()['classicGamertag'] != user:
-                            print(f"{user} Invalid")
+                            print(f"{Fore.RED}[?] {user} Invalid")
                         else:
-                            print("Ratelimited")
+                            print({Fore.RED}"Ratelimited")
                     except Exception as e:
-                        print(e)
+                        print(f"{Fore.RED}[!] {e}")
             else:
                 print("exiting in 10 seconds...")
                 time.sleep(10)
