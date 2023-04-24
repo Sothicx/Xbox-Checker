@@ -7,6 +7,7 @@ class checker:
 
     def checkers(self):
         webbrowser.open('https://discord.gg/tmV3XpxkFJ')
+        token = input(f"{Fore.YELLOW} Enter Xbox Token")
         while True:
             os.system(f'title ^ Available: {self.available}')
             self.username = open('usernames.txt').read().splitlines()
@@ -25,7 +26,7 @@ class checker:
                         'Sec-Fetch-Mode': 'cors',
                         'Sec-Fetch-Site': 'cross-site',
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-                        'authorization': '',# Paste Xbox Token Between ' and '
+                        'authorization': token,
                         'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
                         'sec-ch-ua-mobile': '?0',
                         'sec-ch-ua-platform': '"Windows"',
