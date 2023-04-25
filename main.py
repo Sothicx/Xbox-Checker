@@ -1,4 +1,5 @@
 import requests, time, os, webbrowser
+from colorama import Fore,Style
 class checker:
     def __init__(self):
         self.available = 0
@@ -6,6 +7,7 @@ class checker:
 
     def checkers(self):
         webbrowser.open('https://discord.gg/tmV3XpxkFJ')
+        token = input(f"{Fore.YELLOW} Enter Xbox Token")
         while True:
             os.system(f'title ^ Available: {self.available}')
             self.username = open('usernames.txt').read().splitlines()
@@ -24,7 +26,7 @@ class checker:
                         'Sec-Fetch-Mode': 'cors',
                         'Sec-Fetch-Site': 'cross-site',
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-                        'authorization': '',# Paste Xbox Token Between ' and '
+                        'authorization': token,
                         'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
                         'sec-ch-ua-mobile': '?0',
                         'sec-ch-ua-platform': '"Windows"',
@@ -39,14 +41,14 @@ class checker:
                     try:
                         response = requests.post('https://gamertag.xboxlive.com/gamertags/reserve', headers=headers, json=json_data)
                         if response.json()['classicGamertag'] == user:
-                            print(f"{user} Available")
+                            print(f"{Fore.GREEN}[#] {user} Available")
                             self.available += 1
                         elif response.json()['classicGamertag'] != user:
-                            print(f"{user} Invalid")
+                            print(f"{Fore.RED}[?] {user} Invalid")
                         else:
-                            print("Ratelimited")
+                            print({Fore.RED}"Ratelimited")
                     except Exception as e:
-                        print(e)
+                        print(f"{Fore.RED}[!] {e}")
             else:
                 print("exiting in 10 seconds...")
                 time.sleep(10)
